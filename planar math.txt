@@ -1,0 +1,69 @@
+p = [1,1,1];
+q = [1,2,0];
+r = [-1,2,1];
+
+pq = q - p = (0,1,-1);
+pr = r - p = (-2,1,0);
+
+c = (a2b3-a3b2), (a3b1-a1b3), (a1b2, a2b1)
+pqr = pq*pr = (0)-(-1), (2)-(0), (0)-(-2)
+(1,2,2)
+
+x+2y+2z=d
+pqr*p=d
+1*1+2*1+2*1=5
+
+1x+2y+2z=5
+ax+by+cz=d
+
+5-2z=1x+2y
+d-cz=ax+by
+
+-2z=1x+2y-5
+-cz=ax+by-d
+
+z=-.5x-y+2.5
+z=-(ax+by-d)/c
+
+z=-((a/c)x + (b/c)y - d);
+
+<-------------------------------------------->
+// per polygon
+x12 = x2-x1;
+y12 = y2-y1;
+z12 = z2-z1;
+
+x13 = x3-x1;
+y13 = y3-y1;
+z13 = z3-z1;
+
+a = y12*z13 - z12*y13;
+b = z12*x13 - x12*z13;
+c = x12*y13 - y12*x13;
+
+d = x1*a + y1*b + z1*c;
+
+m = a/c;
+n = b/c;
+
+// per texel
+z = -1*(m*Xscreen + n*Yscreen - d);
+
+x = Xscreen * z;
+y = Yscreen * z;
+
+
+
+<----------------------------------------------->
+m=dv/dy
+u=mx+b
+
+// per polygon
+m = (u2-u1)/(x2-x1);
+n = (v2-v1)/(y2-y1);
+b = u1-m*x1;
+c = v1-n*y1;
+
+//per texel
+u = m*x+b;
+v = n*y+b;
