@@ -1,26 +1,27 @@
 #include <'math.h'>
 //beep boop meow!
 
-
+// root graphics function. draws entire frame
 int drawFrame (
 	uintptr_t	frameBuffer,	// Pointer to framebuffer
-	uintptr_t	polygonIndexP,	// Pointer to array of P vertice index, uint32_t elements
-	uintptr_t	polygonIndexQ,	// Pointer to array of Q vertice index, uint32_t elements
-	uintptr_t	polygonIndexR,	// Pointer to array of R vertice index, uint32_t elements
-	uintptr_t	polygonIndexT,	// Pointer to array of texture index, uint32_t elements
-	uintptr_t	verticeArrayX,	// Pointer to array of vertices, float elements
-	uintptr_t	verticeArrayY,	// Pointer to array of vertices, float elements
-	uintptr_t	verticeArrayZ,	// Pointer to array of vertices, float elements
-	uintptr_t	verticeArrayU,	// Pointer to array of vertices, uint16_t elements
-	uintptr_t	verticeArrayV,	// Pointer to array of vertices, uint16_t elements
-	uintptr_t	texturePointer,	// Pointer to array of texture pointers, uintptr_t elements
-	uintptr_t	textureWidth,	// Pointer to array of texture widths, uint16_t elements
-	uintptr_t	textureHeight,	// Pointer to array of texture heights, uint16_t elements
+	uint16_t	numOfObjects	// Number of objects in scene
+	uintptr_t	objectX,	// Pointer to object X position array, elements in float
+	uintptr_t	objectY,	// Pointer to object Y position array, elements in float
+	uintptr_t	objectZ,	// Pointer to object Z position array, elements in float
+	uintptr_t	objectYaw,	// Pointer to object yaw array, elements in int32_t
+	uintptr_t	objectRoll,	// Pointer to object roll array, elements in int32_t
+	uintptr_t	objectPitch,	// Pointer to object pitch array, elements in int32_t
+	uintptr_t	objectScale,	// Pointer to object scaling array, elements in float
+	uintptr_t	objectPolygons,	// Pointer to object polygon array pointer array, elements in uintptr_t
+	uintptr_t	objectVertices,	// Pointer to object vertex array pointer array, elements in uintptr_t
+	uintptr_t	objectTexture,	// Pointer to object texture pointer array, elements in uintptr_t
 	int32_t		cameraYaw,	// Camera Yaw angle in scaled units, 8LSB is ignored
 	int32_t		cameraRoll,	// Camera Roll angle in scaled units, 8LSB is ignored
 	int32_t		cameraPitch	// Camera Pitch angle in scaled units, 8LSB is ignored
 	) {
 		
-		// Insert main function here
+		// Cull Vertices not in scene
+		
+		cullInScene ();
 		
 	}
