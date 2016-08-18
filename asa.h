@@ -1,7 +1,7 @@
 #include <'math.h'>
 //beep boop meow!
 
-// root graphics function. draws entire frame
+// root graphics function. Creates and draws entire frame
 int drawFrame (
 	uintptr_t	frameBuffer,		// Pointer to framebuffer
 	uint16_t	numOfObjects		// Number of objects in scene
@@ -29,19 +29,25 @@ int drawFrame (
 		
 		// Calculate maximum number of polygons and vertices
 		uint32_t maxNumPoly = sum ( numOfObjects, objectNumPoly );	// Calculate potential polygons
-		uint32_t maxNumvert = sum ( numOfObjects, objectnumVert );	// Calculate potential vertices
+		uint32_t maxNumVert = sum ( numOfObjects, objectnumVert );	// Calculate potential vertices
 		
 		// Declare scene polygon arrays
 		uint32_t scenePolygonsP [ maxNumPoly ];
 		uint32_t scenePolygonsQ [ maxNumPoly ];
 		uint32_t scenePolygonsR [ maxNumPoly ];
 		
-		// Populate scene polygon afrrays
-		importObjectPolygons ( maxNumPoly, scenePolygonsP, numOfObjects, objectNumPoly, objectPolygonP, objectNumVert );	// Copy all P indices
-		importObjectPolygons ( maxNumPoly, scenePolygonsQ, numOfObjects, objectNumPoly, objectPolygonQ, objectNumVert );	// Copy all Q indices
-		importObjectPolygons ( maxNumPoly, scenePolygonsR, numOfObjects, objectNumPoly, objectPolygonR, objectNumVert );	// Copy all R indices
-		
 		// Declare scene vertice arrays
+		uint32_t sceneVerticesX [ maxNumVert ];
+		uint32_t sceneVerticesY [ maxNumVert ];
+		uint32_t sceneVerticesZ [ maxNumVert ];
+		
+		// Populate scene polygon arrays
+		importObjectPoly ( maxNumPoly, scenePolygonsP, numOfObjects, objectNumPoly, objectPolygonP, objectNumVert );	// Copy all P indices
+		importObjectPoly ( maxNumPoly, scenePolygonsQ, numOfObjects, objectNumPoly, objectPolygonQ, objectNumVert );	// Copy all Q indices
+		importObjectPoly ( maxNumPoly, scenePolygonsR, numOfObjects, objectNumPoly, objectPolygonR, objectNumVert );	// Copy all R indices
+		
+		// Populate scene vertice arrays
+		importObjectVert ( maxNumVert, sceneVerticesX, numOfObjects, objectNumVert, )
 		
 		// Translate Object Vertices
 		translate ();
